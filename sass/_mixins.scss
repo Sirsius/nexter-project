@@ -1,0 +1,29 @@
+@mixin respond($breakpoint) {
+  // using ems for beter responsiveness, never use pixels.
+  //1em =16px
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //37.5 * 16 = 600
+  }
+  @if $breakpoint == lrg-phone {
+    @media only screen and (max-width: 50em) {
+      @content;
+    } //800
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 62.5em) {
+      @content;
+    } // 1000 px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //75 * 16 =1200
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  } //112.5 * 16 = 1800
+}

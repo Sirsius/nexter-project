@@ -4,6 +4,13 @@
   grid-row: 1/ -1;
   display: flex;
   justify-content: center;
+
+  @include respond(tab-port) {
+    grid-row: 1 / 2;
+    grid-column: full-start / full-end;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }
 
 .nav-btn {
@@ -12,22 +19,33 @@
 
   background-color: white;
   height: 2px;
-  width: 4.5rem;
+  width: 3.5rem;
   margin-top: 4rem;
+
+  @include respond(tab-port) {
+    margin-right: 2rem;
+    margin-top: 0;
+  }
 
   &::before,
   &::after {
     content: '';
     background-color: white;
     height: 2px;
-    width: 4.5rem;
+    width: 3.5rem;
     display: block;
   }
 
   &::before {
     transform: translateY(-1.5rem);
+    @include respond(tab-port) {
+      transform: translateY(-0.7rem);
+    }
   }
   &::after {
     transform: translateY(1.3rem);
+    @include respond(tab-port) {
+      transform: translateY(0.5rem);
+    }
   }
 }
